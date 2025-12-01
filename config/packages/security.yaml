@@ -28,6 +28,9 @@ security:
             pattern: ^/api
             stateless: true
             jwt: ~
+            entry_point: jwt
+            refresh_jwt:
+                check_path: /api/token/refresh
         main:
             lazy: true
             provider: app_user_provider
@@ -37,6 +40,7 @@ security:
         # - { path: ^/profile, roles: ROLE_USER }
         - { path: ^/api/login, roles: PUBLIC_ACCESS }
         - { path: ^/api/register, roles: PUBLIC_ACCESS }
+        - { path: ^/api/token/refresh, roles: PUBLIC_ACCESS }
         - { path: ^/api,       roles: IS_AUTHENTICATED_FULLY }
 
 when@test:

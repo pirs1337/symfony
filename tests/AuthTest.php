@@ -22,6 +22,10 @@ class AuthTest extends WebTestCase
         $this->assertArrayHasKey('token', $responseData);
         $this->assertIsString($responseData['token']);
         $this->assertNotEmpty($responseData['token']);
+
+        $this->assertArrayHasKey('refresh_token', $responseData);
+        $this->assertIsString($responseData['refresh_token']);
+        $this->assertNotEmpty($responseData['refresh_token']);
     }
 
     public function testRegister(): void
